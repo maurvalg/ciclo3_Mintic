@@ -1,6 +1,8 @@
 package com.JEMG.Reto3_Hotel;
 
 
+import java.io.Serializable;
+
 //import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="messages")
-public class Menssages {
+public class Menssages implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

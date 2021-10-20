@@ -1,5 +1,6 @@
 package com.JEMG.Reto3_Hotel;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,15 +15,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="client")
-public class Client {
+public class Client implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idClient;
 	private String email;
-	private String name;
 	private String password;
-	private String age;
+	private String name;
+	private Integer age;
 
 	@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
 	@JsonIgnoreProperties("messages")
@@ -64,11 +65,11 @@ public class Client {
 		this.password = password;
 	}
 
-	public String getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 

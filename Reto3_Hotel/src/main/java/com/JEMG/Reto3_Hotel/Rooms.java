@@ -3,6 +3,7 @@ package com.JEMG.Reto3_Hotel;
 
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,16 +21,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="rooms")
-public class Rooms {
+public class Rooms implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private Integer id;
 	private String name;
-	private Integer stars;
-	//private Integer category;
 	private String hotel;
+	private Integer stars;
 	private String description;
 	
 	@ManyToOne//(optional=false)
@@ -38,7 +38,7 @@ public class Rooms {
 	private Category category;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="room")
-	@JsonIgnoreProperties("room")
+	@JsonIgnoreProperties({"room", "client"})
 	private List<Menssages> messages;
 
 	@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="room")
