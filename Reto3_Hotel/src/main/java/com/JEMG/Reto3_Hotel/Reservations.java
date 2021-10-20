@@ -59,11 +59,11 @@ public class Reservations {
 		this.startDate = startDate;
 	}
 
-	public Date getDevolutionDate() {
+	public String getDevolutionDate() {
 		return devolutionDate + "T00:00:00.000+00:00";
 	}
 
-	public void setDevolutionDate(Date devolutionDate) {
+	public void setDevolutionDate(String devolutionDate) {
 		this.devolutionDate = devolutionDate;
 	}
 
