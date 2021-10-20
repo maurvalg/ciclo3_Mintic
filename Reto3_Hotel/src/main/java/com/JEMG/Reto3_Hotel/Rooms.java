@@ -27,9 +27,8 @@ public class Rooms {
 	
 	private Integer id;
 	private String name;
-	private Integer stars;
-	//private Integer category;
 	private String hotel;
+	private Integer stars;
 	private String description;
 	
 	@ManyToOne//(optional=false)
@@ -66,16 +65,6 @@ public class Rooms {
 	}
 
 
-	public Integer getStars() {
-		return stars;
-	}
-
-
-	public void setStars(Integer stars) {
-		this.stars = stars;
-	}
-
-
 	public String getHotel() {
 		return hotel;
 	}
@@ -86,6 +75,14 @@ public class Rooms {
 	}
 
 
+	public Integer getStars() {
+		return stars;
+	}
+
+
+	public void setStars(Integer stars) {
+		this.stars = stars;
+	}
 	public String getDescription() {
 		return description;
 	}
