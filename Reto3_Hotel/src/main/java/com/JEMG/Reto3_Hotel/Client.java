@@ -20,8 +20,8 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idClient;
 	private String email;
-	private String name;
 	private String password;
+	private String name;
 	private String age;
 
 	@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
@@ -48,14 +48,6 @@ public class Client {
 		this.email = email;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -64,6 +56,13 @@ public class Client {
 		this.password = password;
 	}
 
+		public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getAge() {
 		return age;
 	}
