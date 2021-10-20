@@ -37,7 +37,7 @@ public class Rooms {
 	private Category category;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="room")
-	@JsonIgnoreProperties("room")
+	@JsonIgnoreProperties({"room", "client"})
 	private List<Menssages> messages;
 
 	@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="room")
