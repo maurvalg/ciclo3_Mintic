@@ -66,16 +66,6 @@ public class Rooms implements Serializable {
 	}
 
 
-	public Integer getStars() {
-		return stars;
-	}
-
-
-	public void setStars(Integer stars) {
-		this.stars = stars;
-	}
-
-
 	public String getHotel() {
 		return hotel;
 	}
@@ -86,6 +76,14 @@ public class Rooms implements Serializable {
 	}
 
 
+	public Integer getStars() {
+		return stars;
+	}
+
+
+	public void setStars(Integer stars) {
+		this.stars = stars;
+	}
 	public String getDescription() {
 		return description;
 	}

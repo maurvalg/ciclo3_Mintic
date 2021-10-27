@@ -26,5 +26,10 @@ public class RepositoriCategory {
 		
 		return crud.save(category);
 	}
+	
+	public void delete(Category category) {
+		
+		crud.delete(category);
+	}
 
 }

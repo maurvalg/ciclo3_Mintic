@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class serviciosMenssages {
 	@Autowired
@@ -39,5 +40,35 @@ public class serviciosMenssages {
 			}
 		}
 	}
+	
+	public Menssages update(Menssages mensage){
+		if (mensage.getIdMessage() !=null) {
+			
+			Optional<Menssages> element=metodosCrud.getMenssages(mensage.getIdMessage());
+			if (!element.isEmpty()) {
+				
+				if(mensage.getMessageText() != null) {
+					element.get().setMessageText(mensage.getMessageText());
+				}
+				metodosCrud.save(element.get());
+				return element.get();
+			}else {
+				return mensage;
+			}
+		}else {
+			return mensage;
+		}
+		
+	}
+	
+	public boolean deleteMessagee (int messageId) {
+		Boolean messageBoolean = getMensagges(messageId).map(message -> {
+			metodosCrud.delete(message);
+			return true;
+			
+		}).orElse(false);
+		return messageBoolean;
+	}
+	
 
 }

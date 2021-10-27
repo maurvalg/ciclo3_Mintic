@@ -26,5 +26,10 @@ public class RepositoriRooms {
 		
 		return crud.save(rooms);
 	}
+	
+	public void delete(Rooms rooms) {
+			
+			crud.delete(rooms);
+	}
 
 }

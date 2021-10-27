@@ -1,8 +1,8 @@
 package com.JEMG.Reto3_Hotel;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,9 +25,11 @@ public class Reservations implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private Integer idReservation;
-	private String startDate;
-	private String devolutionDate;
-	private String status = "created";
+	private Date startDate;
+	private Date devolutionDate;
+	private String status;
+	//private String status = "created";
+	
 	
 	@ManyToOne(optional=false)
 	@JoinColumn(name="id")//, insertable=false, updatable=false)
@@ -52,19 +54,19 @@ public class Reservations implements Serializable {
 		this.idReservation = idReservation;
 	}
 
-	public String getStartDate() {
-		return startDate + "T00:00:00.000+00:00";
+	public Date getStartDate() {
+		return startDate;// + "T00:00:00.000+00:00";
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getDevolutionDate() {
-		return devolutionDate + "T00:00:00.000+00:00";
+	public Date getDevolutionDate() {
+		return devolutionDate; // + "T00:00:00.000+00:00";
 	}
 
-	public void setDevolutionDate(String devolutionDate) {
+	public void setDevolutionDate(Date devolutionDate) {
 		this.devolutionDate = devolutionDate;
 	}
 

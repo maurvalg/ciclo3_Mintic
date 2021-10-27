@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class RepositoriMensages {
 	
@@ -27,4 +28,8 @@ public class RepositoriMensages {
 		return crud.save(mensages);
 	}
 
+	  public void delete(Menssages mensages) {
+			
+			crud.delete(mensages);
+		}
 }

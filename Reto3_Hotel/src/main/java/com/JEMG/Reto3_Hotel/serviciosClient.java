@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 @Service
 public class serviciosClient {
 	
@@ -40,6 +42,46 @@ public class serviciosClient {
 			}
 		}
 	}
+	
+	public Client update(Client client){
+		if (client.getIdClient() !=null) {
+			
+			Optional<Client> element=metodosCrud.getClient(client.getIdClient());
+			if (!element.isEmpty()) {
+				
+				if(client.getEmail() != null) {
+					element.get().setEmail(client.getEmail());
+				}
+				if(client.getPassword() != null) {
+					element.get().setPassword(client.getPassword());
+				}
+				if(client.getName() != null) {
+					element.get().setName(client.getName());
+				}
+				if(client.getAge() != null) {
+					element.get().setAge(client.getAge());
+				}
+		
+				metodosCrud.save(element.get());
+				return element.get();
+			}else {
+				return client;
+			}
+		}else {
+			return client;
+		}
+		
+	}
+	
+	public boolean deleteCliente (int clientId) {
+		Boolean clientBoolean = getClient(clientId).map(client -> {
+			metodosCrud.delete(client);
+			return true;
+			
+		}).orElse(false);
+		return clientBoolean;
+	}
+	
 
 
 }

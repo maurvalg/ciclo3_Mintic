@@ -40,5 +40,41 @@ public class serviciosCategory {
 			}
 		}
 	}
+	
+	public Category update(Category category){
+		if (category.getId() !=null) {
+			
+			Optional<Category> element=metodosCrud.getCategory(category.getId());
+			if (!element.isEmpty()) {
+				
+				if(category.getName() != null) {
+					element.get().setName(category.getName());
+				}
+				if(category.getDescription() != null) {
+					element.get().setDescription(category.getDescription());
+				}
+				/*if(category.getRooms() != null) {
+					element.get().setRooms(category.getRooms());
+				}*/
+				metodosCrud.save(element.get());
+				return element.get();
+			}else {
+				return category;
+			}
+		}else {
+			return category;
+		}
+		
+	}
+	
+	public boolean deleteCategory (int categoryId) {
+		Boolean catBoolean = getCategory(categoryId).map(category -> {
+			metodosCrud.delete(category);
+			return true;
+			
+		}).orElse(false);
+		return catBoolean;
+	}
+	
 
 }

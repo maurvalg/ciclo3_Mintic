@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
+
 @Repository
 public class RepositoriClient {
 	
@@ -25,6 +27,11 @@ public class RepositoriClient {
 	public Client save(Client client) {
 		
 		return crud.save(client);
+	}
+	
+   public void delete(Client client) {
+		
+		crud.delete(client);
 	}
 
 
